@@ -4,11 +4,7 @@ import logging
 import time
 import os
 logname='/ebs/log/myapp.log'
-logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s %(levelname)s %(message)s',
-                    filename=logname,
-                    filemode='a')
-
+log_file=open(logname,'ab')
 mx=300000000
 count=0
 div=100000
@@ -16,16 +12,18 @@ prevtime=time.time()
 prevcnt=count
 while count<mx:
     count+=1
-    msg='cnt=%010d' % count
-    logging.info(msg)
+    msg='cnt=%010d\n' % count
+    log_file.write(msg)
+    log_file.flush()
     if count%div==0:
         tm=time.time()-prevtime
         diffcnt=count-prevcnt
         fsize=os.path.getsize(logname)
         fsize=fsize/(1024*1024)
-        msg='count=%010d,diffcnt=%d,fsize=%d MB,time=%f' % (count,diffcnt,fsize,tm)
+        msg='count=%010d,diffcnt=%d,fsize=%d MB,time=%f\n' % (count,diffcnt,fsize,tm)
+        log_file.write(msg)
+        log_file.flush()
         print msg
-        logging.info(msg)
         prevcnt=count
         prevtime=time.time()
 
