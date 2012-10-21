@@ -7,3 +7,5 @@ write log test,describe there <http://www.shibaok.net/index.php?%C6%FC%B5%AD%2F2
 
 I'confirmed some rumar that file appending line then file bigger,file appending speed is slow down.but that is false.
 
+* seeing believing
+human perception changer.see http://www.slideshare.net/shibacow/seeing-is-believing-3505941
