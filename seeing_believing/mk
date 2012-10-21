@@ -1,0 +1,5 @@
+#!/bin/bash
+python setup.py build
+python setup.py clean
+rm build/lib.linux-i686-2.3/sort_test.so
+
